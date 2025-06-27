@@ -1,0 +1,47 @@
+<div class="login-container">
+  <div class="login-card">
+    <div class="logo-section">
+      <div class="logo">
+        <div class="pizzeria-text">PIZZERÍA</div>
+        <div class="utensils-icon">🍴</div>
+        <div class="classic-text">Classic</div>
+      </div>
+    </div>
+    
+    <form (ngSubmit)="onSubmit()" class="login-form">
+      <div class="input-group">
+        <label for="usuario">USUARIO/CORREO</label>
+        <input 
+          type="text" 
+          id="usuario" 
+          name="usuario"
+          [(ngModel)]="usuario"
+          class="form-input"
+          placeholder=""
+        >
+      </div>
+      
+      <div class="input-group">
+        <label for="contrasena">CONTRASEÑA</label>
+        <input 
+          type="password" 
+          id="contrasena" 
+          name="contrasena"
+          [(ngModel)]="contrasena"
+          class="form-input"
+          placeholder=""
+          required
+        >
+      </div>
+      
+      <button 
+        type="submit" 
+        class="login-button"
+        [disabled]="!isFormValid()"
+        [class.disabled]="!isFormValid()"
+      >
+        INICIAR SESIÓN
+      </button>
+    </form>
+  </div>
+</div>
