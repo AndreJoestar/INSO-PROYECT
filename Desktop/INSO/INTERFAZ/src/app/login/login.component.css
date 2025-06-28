@@ -1,0 +1,123 @@
+.login-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #F4E4BC 0%, #E8D5A8 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.login-card {
+  background: linear-gradient(145deg, #F8F0D8 0%, #F4E4BC 100%);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  border: 2px solid #D4B896;
+}
+
+.logo-section {
+  margin-bottom: 30px;
+}
+
+.logo {
+  background: linear-gradient(45deg, #E8A87C, #D4B896);
+  border-radius: 15px;
+  padding: 20px;
+  display: inline-block;
+  position: relative;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.pizzeria-text {
+  font-size: 14px;
+  font-weight: bold;
+  color: #8B4513;
+  margin-bottom: 5px;
+  letter-spacing: 1px;
+}
+
+.utensils-icon {
+  font-size: 24px;
+  margin: 5px 0;
+  display: block;
+}
+
+.classic-text {
+  font-size: 28px;
+  font-weight: bold;
+  color: #8B4513;
+  font-style: italic;
+  margin-top: 5px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.input-group {
+  text-align: left;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #8B4513;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid #D4B896;
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: #FEFCF0;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #B8860B;
+  box-shadow: 0 0 5px rgba(184, 134, 11, 0.3);
+}
+
+.login-button {
+  background: linear-gradient(45deg, #8B4513, #A0522D);
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 1px;
+  margin-top: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.login-button:hover:not(.disabled) {
+  background: linear-gradient(45deg, #A0522D, #8B4513);
+  transform: translateY(-2px);
+  box-shadow: 0 7px 20px rgba(0, 0, 0, 0.3);
+}
+
+.login-button.disabled {
+  background: #CCCCCC;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.login-button:active:not(.disabled) {
+  transform: translateY(0);
+}
