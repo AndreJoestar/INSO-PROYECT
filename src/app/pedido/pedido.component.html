@@ -1,0 +1,93 @@
+<div class="pedido-container">
+  <!-- Header -->
+  <div class="header">
+    <div class="user-icon">
+      <i class="fas fa-user"></i>
+    </div>
+    <span class="app-name">D' Classic</span>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <!-- Left Panel -->
+    <div class="left-panel">
+      <h2 class="section-title">REGISTRO DE PEDIDOS</h2>
+
+      <!-- Mesa Info -->
+      <div class="mesa-card">
+        <div class="mesa-number">{{ mesaSeleccionada }}</div>
+      </div>
+
+      <div class="mesa-info">
+        <div class="info-item">Mesa: {{ mesaSeleccionada }}</div>
+        <div class="info-item">Capacidad: {{ capacidadMesa }}</div>
+        <div class="info-item">Piso: {{ pisoMesa }}</div>
+      </div>
+
+      <button class="btn-seleccionar-mesa" (click)="volverASeleccionarMesa()">
+        SELECCIONAR MESA
+      </button>
+    </div>
+
+    <!-- Right Panel -->
+    <div class="right-panel">
+      <!-- Pedido Section -->
+      <div class="pedido-section">
+        <div class="section-header">
+          <span class="section-label">PEDIDO</span>
+          <div class="mesa-status">MESA {{ mesaSeleccionada }} / DISPONIBLE</div>
+        </div>
+
+        <button class="btn-agregar" (click)="mostrarProductos()">AGREGAR</button>
+      </div>
+
+      <!-- Información del pedido -->
+      <div class="pedido-info">
+        <h3>Información del pedido</h3>
+
+        <div class="productos-seleccionados">
+          <div class="producto-item" *ngFor="let item of pedidoItems; let i = index">
+            <span class="producto-nombre">{{ item.nombre }}</span>
+            <span class="producto-cantidad">({{ item.cantidad }})</span>
+            <button class="btn-remove" (click)="removerItem(i)">×</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Comentarios -->
+      <div class="comentarios-section">
+        <h3>Comentarios</h3>
+        <textarea
+          class="comentarios-textarea"
+          [(ngModel)]="comentarios"
+          placeholder="Ingrese comentarios adicionales...">
+        </textarea>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="action-buttons">
+        <button class="btn-registrar" (click)="registrarPedido()">REGISTRAR</button>
+        <button class="btn-limpiar" (click)="limpiarPedido()">LIMPIAR</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal para seleccionar productos -->
+  <div class="modal-overlay" *ngIf="mostrarModalProductos" (click)="cerrarModalProductos()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <div class="modal-header">
+        <h3>Seleccionar Productos</h3>
+        <button class="btn-close" (click)="cerrarModalProductos()">×</button>
+      </div>
+
+      <div class="productos-grid">
+        <div class="producto-card"
+             *ngFor="let producto of productosDisponibles"
+             (click)="agregarProducto(producto)">
+          <div class="producto-nombre">{{ producto.nombre }}</div>
+          <div class="producto-precio">S/. {{ producto.precio }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
