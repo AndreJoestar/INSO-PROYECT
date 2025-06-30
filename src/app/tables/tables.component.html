@@ -1,0 +1,42 @@
+<div class="tables-container">
+  <div class="header">
+    <span class="section-text">MESAS</span>
+    <div class="user-icon">
+      <span class="user-text">D' Classic</span>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <div class="sidebar">
+      <div class="sidebar-buttons">
+        <button class="sidebar-btn active">Mesas</button>
+        <button class="sidebar-btn">Seleccione la mesa</button>
+        <button class="sidebar-btn">PLANTA</button>
+      </div>
+
+      <div class="floor-buttons">
+        <button class="floor-btn active">1</button>
+        <button class="floor-btn">2</button>
+      </div>
+
+      <button class="logout-btn" (click)="logout()">
+        CERRAR SESIÓN
+      </button>
+    </div>
+
+    <div class="tables-grid-container">
+      <div class="tables-grid">
+        <div
+          *ngFor="let table of tables"
+          class="table-item"
+          [class.occupied]="table.isOccupied"
+          [class.available]="!table.isOccupied"
+          (click)="onTableClick(table)"
+        >
+          <div class="table-number">{{ table.number.toString().padStart(2, '0') }}</div>
+          <div class="table-status-indicator" [class.occupied]="table.isOccupied"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
